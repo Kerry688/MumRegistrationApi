@@ -19,6 +19,11 @@ public class EntryController {
         return service.getEntries();
     }
 
+    @GetMapping(path = "/{id}")
+    public Entry getEntryById(@PathVariable long id){
+        return service.getEntry(id);
+    }
+
     @PostMapping()
     public Long addEntry(@RequestBody Entry entry){
          return service.addEntry(entry);

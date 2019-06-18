@@ -19,20 +19,27 @@ public class BlockController {
         return service.getBlocks();
     }
 
-    @PostMapping()
-    public Long addBlock(@RequestBody Block block){
-
-        return service.addBlock(block);
+    @GetMapping("/{id}")
+    public Block get(@PathVariable long id) {
+        return service.getBlock(id);
     }
 
+    @PostMapping()
+    public Long addBlock(@RequestBody Block block){
+        return service.addBlock(block);
+    }
     @PutMapping()
     public void updateBlock(@RequestBody Block block){
-
         service.updateBlock(block);
     }
 
     @DeleteMapping(path = "/{id}")
     public void deleteBlock(@PathVariable long id){ service.deleteBlock(id);
+    }
+
+    @GetMapping(path = "/blocksections")
+    public List<Block> getBlocksWithSections(){
+        return service.getBlocksWithSections();
     }
 
 

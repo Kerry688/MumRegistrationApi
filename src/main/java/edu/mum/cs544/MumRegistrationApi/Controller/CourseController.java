@@ -5,6 +5,7 @@ import edu.mum.cs544.MumRegistrationApi.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -15,6 +16,11 @@ public class CourseController {
     @GetMapping()
     public List<Course> getCourses() {
         return service.getCourses();
+    }
+
+    @GetMapping(path = "/{id}")
+    public Course getCourseById(@PathVariable long id){
+        return service.getCourse(id);
     }
 
     @PostMapping()
@@ -32,5 +38,9 @@ public class CourseController {
         service.deleteCourse(id);
     }
 
+    @GetMapping(path = "/courselevels")
+    public List<Course> getCourseLevels(){
+     return null;
+    }
 
 }

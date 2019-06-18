@@ -6,6 +6,7 @@ import edu.mum.cs544.MumRegistrationApi.Model.Section;
 import edu.mum.cs544.MumRegistrationApi.Model.Student;
 import edu.mum.cs544.MumRegistrationApi.dto.SectionDto;
 import edu.mum.cs544.MumRegistrationApi.dto.StudentDto;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -61,7 +62,7 @@ public class StudentService   {
 
 
 //    //@Secured("ROLE_s")
-//    public List<SectionDto> getEnrolledSections(long userId) {
+     public List<Section> getEnrolledSections(long userId) {
 //        Student student = getStudentByUserId(userId);
 //        List<SectionDto> sectionDtoList = new ArrayList<>();
 //
@@ -76,7 +77,9 @@ public class StudentService   {
 //            sectionDtoList.add(sectionDto);
 //        }
 //        return sectionDtoList;
-//    }
+
+         return null;
+    }
 
   //  @Secured("ROLE_s")
     public Result registerForSections(long userId, int[] sectionIdArray) {

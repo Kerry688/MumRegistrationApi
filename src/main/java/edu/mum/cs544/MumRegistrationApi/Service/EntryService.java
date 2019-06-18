@@ -1,4 +1,5 @@
 package edu.mum.cs544.MumRegistrationApi.Service;
+import edu.mum.cs544.MumRegistrationApi.Model.Course;
 import edu.mum.cs544.MumRegistrationApi.Model.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -17,14 +18,17 @@ import java.util.regex.Pattern;
 public class EntryService {
     @Autowired
     private RestTemplate restTemplate;
+    private String entryURL ="http://localhost:8083/api/course";
 
     public List<Entry> getEntries() {
-        ResponseEntity<List<Entry>> response = restTemplate.exchange("http://localhost:8083/api/entry",
+        ResponseEntity<List<Entry>> response = restTemplate.exchange(entryURL,
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<Entry>>() {
                 });
         return response.getBody();
     }
-
+    public Entry getEntry(Long id) {
+        return restTemplate.getForObject(entryURL + "/" + id, Entry.class);
+    }
     public Long addEntry(Entry entry){
         URI uri=restTemplate.postForLocation("http://localhost:8083/api/entry",entry);
         if (uri == null) { return null; }
@@ -33,9 +37,9 @@ public class EntryService {
         return Long.parseLong(m.group(1));
     }
     public void updateEntry(Entry entry){
-        restTemplate.put("http://localhost:8083/api/course",entry,entry.getId());
+        restTemplate.put(entryURL,entry,entry.getId());
     }
     public void deleteEntry(long id){
-        restTemplate.delete("http://localhost:8083/api/entry/"+id,id);
+        restTemplate.delete(entryURL+id,id);
     }
 }
