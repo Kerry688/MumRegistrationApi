@@ -10,7 +10,7 @@ public class Course {
     private long id;
     private String name;
     private String code;
-    private CourseLevel level;
+    private String level;
     private List<Course> prerequisiteCourses;
     private List<Section> sections;
     private List<Faculty> facultiesCanTeach;

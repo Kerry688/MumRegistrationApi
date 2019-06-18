@@ -15,11 +15,11 @@ public class Student {
     private User user;
     private String firstName;
     private String lastName;
-    private Gender gender;
+    private String gender;
     private int age;
-    private Country country;
+    private String country;
     private boolean isMPP;
-    private StudentType studentType;
+    private String studentType;
     private Entry entry;
     private List<Section> sections;
 }
