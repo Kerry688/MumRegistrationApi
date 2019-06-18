@@ -16,4 +16,5 @@ public class Faculty {
     private String country;
     private List<Course> coursesCanTeach;
     private List<Section> sections;
+
 }

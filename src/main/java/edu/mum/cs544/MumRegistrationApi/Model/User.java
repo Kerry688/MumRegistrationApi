@@ -6,8 +6,10 @@ public class User {
     private long id;
     private String username;
     private String password;
-    private Student student;
-    private Faculty faculty;
     private Roles role;
+
+
+//    private Student student;
+//    private Faculty faculty;
 
 }

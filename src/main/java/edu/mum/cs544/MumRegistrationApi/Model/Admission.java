@@ -8,4 +8,5 @@ public class Admission {
     private String firstName;
     private String lastName;
     private String gender;
+    private User user;
 }

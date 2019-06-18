@@ -22,4 +22,5 @@ public class Student {
     private String studentType;
     private Entry entry;
     private List<Section> sections;
+
 }
